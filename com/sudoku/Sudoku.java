@@ -11,6 +11,7 @@ class Sudoku {
 			for (int initCol = 0; initCol < 9; initCol++)
 				puzzle[initRow][initCol] = 0;
 
+		/*
 		puzzle[0][0]= 1;
 		puzzle[0][1]= 7;
 		puzzle[0][2]= 3;
@@ -37,7 +38,7 @@ class Sudoku {
 		puzzle[8][6]= 2;
 		puzzle[8][7]= 7;
 		puzzle[8][8]= 5;
-		
+		*/
 		
 		/*
 		puzzle[0][1] = 3;
@@ -102,7 +103,7 @@ class Sudoku {
 	}
 
 	//function to find the grid in which the given value is present. function returns the grid number.
-	int findGridNo(int row, int col) {
+	int getGridNo(int row, int col) {
 		if (row >= 0 && row <= 2) {
 			if (col >= 0 && col <= 2)
 				return 1;
@@ -146,7 +147,7 @@ class Sudoku {
 			if (puzzle[i][col] == value || puzzle[row][i] == value)
 				collide = true;
 
-		int gridNo = findGridNo(row, col); // holds the grid number which is returned by the findGridNo function
+		int gridNo = getGridNo(row, col); // holds the grid number which is returned by the findGridNo function
 
 		// check for collision in the grid
 		switch (gridNo) {
@@ -219,28 +220,29 @@ class Sudoku {
 	}
 
 	//function to check the validity of input by the user
-	void insertPuzzle(int row, int col, int knownValue) {
+	boolean insertPuzzle(int row, int col, int knownValue) {
 
 		if (row < 1 || row > 9) {
 			System.out.println("The row must be within 1-9\n");
-			return;
+			return false;
 		}
 
 		if (col < 1 || col > 9) {
 			System.out.println("The column must be within 1-9\n");
-			return;
+			return false;
 		}
 
 		if (knownValue < 1 || knownValue > 9) {
 			System.out.println("The known value must be within 1-9\n");
-			return;
+			return false;
 		}
 		if (isColliding(row-1, col-1, knownValue)) {
 			System.out.println("Cannot Insert value as they are colliding\n");
-			return;
+			return false;
 		}
 
 		puzzle[row-1][col-1] = knownValue; // if the input is valid insert the value in the corresponding cell
+		return true;
 	}
 
 	/*recursive function to solve the sudoku puzzle.

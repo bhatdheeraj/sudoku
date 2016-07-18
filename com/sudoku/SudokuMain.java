@@ -7,6 +7,7 @@ public class SudokuMain {
 	public static void main(String[] args) {
 		
 		Sudoku sudoku=new Sudoku(); 
+		
 		/*
 		Scanner sc=new Scanner(System.in);
 		int totalKnownValues; // total number of known values to be inserted
@@ -14,7 +15,7 @@ public class SudokuMain {
 		int row; // row of known value
 		int col; //column of known value
 		int knownValue; //known value
-		
+				
 		//input of known values for soduku puzzle
 		System.out.print("Enter the number of known values : ");
 		totalKnownValues=sc.nextInt();
@@ -26,10 +27,12 @@ public class SudokuMain {
 			col=sc.nextInt(); //input column
 			knownValue=sc.nextInt(); //input known value
 			
-			sudoku.insertPuzzle(row, col, knownValue); //check for validity of input values
+			if(!sudoku.insertPuzzle(row, col, knownValue)) //check for validity of input values
+			initLoop--;
 		}
 		*/
-		 
+		
+		System.out.println("Initial puzzle : \n");
 		sudoku.displayPuzzle(); // display initial puzzle
 		System.out.println("\n\n");
 		boolean solved=sudoku.sudokuSolver(0, 0, sudoku.puzzle); // solve the puzzle 
@@ -38,6 +41,8 @@ public class SudokuMain {
 		//solve=false for unsuccessful solution
 		// display result if solved=true
 		if(solved){
+			
+			System.out.println("Solution : \n");
 			sudoku.displayPuzzle();
 		}
 		else

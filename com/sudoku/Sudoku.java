@@ -157,7 +157,7 @@ class Sudoku {
 			if (puzzle[i][col] == value || puzzle[row][i] == value)
 				collide = true;
 
-		int gridNo = getGridNo(row, col); // holds the grid number which is
+		int gridNo = getGridNo(row, col);   // holds the grid number which is
 											// returned by the findGridNo
 											// function
 

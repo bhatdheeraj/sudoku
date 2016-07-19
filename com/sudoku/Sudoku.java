@@ -149,12 +149,12 @@ class Sudoku {
 	 */
 	boolean isColliding(int row, int col, int value) {
 
-		int i, j;
+		int rowI, colJ;
 		boolean collide = false;
 
 		// check for the collision in the row and column
-		for (i = 0; i < 9; i++)
-			if (puzzle[i][col] == value || puzzle[row][i] == value)
+		for (rowI = 0; rowI < 9; rowI++)
+			if (puzzle[rowI][col] == value || puzzle[row][rowI] == value)
 				collide = true;
 
 		int gridNo = getGridNo(row, col);   // holds the grid number which is
@@ -165,64 +165,64 @@ class Sudoku {
 		switch (gridNo) {
 
 		case 1:
-			for (i = 0; i <= 2; i++)
-				for (j = 0; j <= 2; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 0; rowI <= 2; rowI++)
+				for (colJ = 0; colJ <= 2; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 2:
-			for (i = 0; i <= 2; i++)
-				for (j = 3; j <= 5; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 0; rowI <= 2; rowI++)
+				for (colJ = 3; colJ <= 5; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 		case 3:
-			for (i = 0; i <= 2; i++)
-				for (j = 6; j <= 8; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 0; rowI <= 2; rowI++)
+				for (colJ = 6; colJ <= 8; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 4:
-			for (i = 3; i <= 5; i++)
-				for (j = 0; j <= 2; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 3; rowI <= 5; rowI++)
+				for (colJ = 0; colJ <= 2; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 5:
-			for (i = 3; i <= 5; i++)
-				for (j = 3; j <= 5; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 3; rowI <= 5; rowI++)
+				for (colJ = 3; colJ <= 5; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 6:
-			for (i = 3; i <= 5; i++)
-				for (j = 6; j <= 8; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 3; rowI <= 5; rowI++)
+				for (colJ = 6; colJ <= 8; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 7:
-			for (i = 6; i <= 8; i++)
-				for (j = 0; j <= 2; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 6; rowI <= 8; rowI++)
+				for (colJ = 0; colJ <= 2; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 8:
-			for (i = 6; i <= 8; i++)
-				for (j = 3; j <= 5; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 6; rowI <= 8; rowI++)
+				for (colJ = 3; colJ <= 5; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
 		case 9:
-			for (i = 6; i <= 8; i++)
-				for (j = 6; j <= 8; j++)
-					if (puzzle[i][j] == value)
+			for (rowI = 6; rowI <= 8; rowI++)
+				for (colJ = 6; colJ <= 8; colJ++)
+					if (puzzle[rowI][colJ] == value)
 						collide = true;
 			break;
 
